@@ -18,7 +18,7 @@ import java.util.Locale
  * Description: Produces HLS or DASH [MediaSource] instances with optional Widevine configuration on the [MediaItem].
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.2.1
+ * Version: 1.3.4
  *
  * Usage:
  *   Invoked from [StreamingClientImpl.play] after [initialize] supplies [StreamConfig]. DASH is selected when the path ends in `.mpd` (case-insensitive).

@@ -2,8 +2,8 @@
  * File: StreamingDiagnostics.kt
  * Description: Immutable snapshot of playback telemetry copied off the playback looper for UI consumption.
  * Author: monigarr@monigarr.com
- * Date: 2026-04-12
- * Version: 1.2.1
+ * Date: 2026-04-15
+ * Version: 1.3.4
  *
  * Usage:
  *   Populate via [StreamingClient.refreshDiagnostics] so Compose layers never touch [androidx.media3.common.Player] off-thread.

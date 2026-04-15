@@ -2,8 +2,8 @@
  * File: AssetManager3D.kt
  * Description: Reference-counted GPU asset registry to prevent texture/model leaks when overlays attach/detach from the video pipeline.
  * Author: monigarr@monigarr.com
- * Date: 2026-04-12
- * Version: 1.2.0
+ * Date: 2026-04-15
+ * Version: 1.3.4
  *
  * Usage:
  *   Call [retain]/[release] from a background dispatcher; observe [pressure] to throttle uploads when VRAM pressure is high.

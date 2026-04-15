@@ -11,7 +11,7 @@ import org.junit.Test
  * Description: Locks Echelon brand palette constants used by the reference Compose shell.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-14
- * Version: 1.0.0
+ * Version: 1.3.4
  */
 class DemoBrandPaletteTest {
 

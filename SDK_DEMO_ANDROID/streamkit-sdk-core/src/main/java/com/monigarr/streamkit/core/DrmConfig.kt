@@ -5,7 +5,7 @@ package com.monigarr.streamkit.core
  * Description: Widevine-oriented DRM bootstrap: license endpoint and optional request headers (tokens).
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.1.0
+ * Version: 1.3.4
  *
  * Usage:
  *   Pass into [StreamingClientImpl] when constructing the client; applied to [androidx.media3.common.MediaItem] DRM.

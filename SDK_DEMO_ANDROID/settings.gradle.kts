@@ -2,8 +2,8 @@
  * File: settings.gradle.kts
  * Description: Gradle settings for plugin management, repositories, and included modules (app, streamkit-sdk-core).
  * Author: monigarr@monigarr.com
- * Date: 2026-04-12
- * Version: 1.1.0
+ * Date: 2026-04-15
+ * Version: 1.3.4
  *
  * Usage:
  *   Consumed automatically by Gradle; defines `rootProject.name` and `include` for modules.

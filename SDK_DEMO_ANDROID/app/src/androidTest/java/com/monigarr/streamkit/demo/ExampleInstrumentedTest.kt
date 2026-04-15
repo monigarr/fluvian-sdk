@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
  * Description: On-device instrumentation smoke tests for the demo application package identity.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.1.0
+ * Version: 1.3.4
  *
  * Usage:
  *   Run via `./gradlew :app:connectedDebugAndroidTest` with a device or emulator available.

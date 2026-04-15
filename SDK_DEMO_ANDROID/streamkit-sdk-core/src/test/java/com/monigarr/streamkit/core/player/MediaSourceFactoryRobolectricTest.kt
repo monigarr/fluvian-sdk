@@ -15,7 +15,7 @@ import org.robolectric.annotation.Config
  * Description: JVM integration tests for HLS/DASH [androidx.media3.exoplayer.source.MediaSource] wiring.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-14
- * Version: 1.0.0
+ * Version: 1.3.4
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])

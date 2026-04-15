@@ -10,7 +10,7 @@ import org.junit.Test
  * Description: Deterministic throughput caps for simulated network profiles (ABR lab paths).
  * Author: monigarr@monigarr.com
  * Date: 2026-04-14
- * Version: 1.0.0
+ * Version: 1.3.4
  */
 class NetworkHealthMonitorThroughputTest {
 

@@ -8,6 +8,7 @@
 - **Enterprise handoff:** Added [docs/PROGRAM_HANDBOOK.md](docs/PROGRAM_HANDBOOK.md) — role-based reading order, first-week engineering checklist, repository map, governance, glossary, CI runbook and troubleshooting, stakeholder FAQ, and outgoing/incoming handoff checklists. Linked from [README.md](README.md), [docs/PRD.md](docs/PRD.md) section 8, and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) sections 24 and 27.
 - **Program version 1.3.4:** [README.md](README.md), [docs/PRD.md](docs/PRD.md), and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) aligned with **`EchelonProgramInfo.DOCUMENT_VERSION`**, demo **`versionName`**, and [SDK_DEMO_ANDROID/publishing.gradle.kts](SDK_DEMO_ANDROID/publishing.gradle.kts) Maven artifact version (coordinated bump).
 - **README / ARCHITECTURE §13:** In-app program badge uses **`BuildConfig.VERSION_NAME`** and must match **`EchelonProgramInfo.DOCUMENT_VERSION`**; documented with the equality contract enforced in `:app` unit tests.
+- **Version/header parity cleanup:** Standardized stale Echelon file-header metadata across Gradle, Kotlin, test, and native source files to **`Version: 1.3.4`** (with aligned header dates) so code headers, docs, and release metadata remain synchronized.
 
 ### Demo
 

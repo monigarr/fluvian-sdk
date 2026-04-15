@@ -15,7 +15,7 @@ import com.monigarr.streamkit.core.DrmConfig
  * Description: Builds a configured Media3 [ExoPlayer] for adaptive HLS/DASH with optional DRM-aware downstream wiring.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.2.1
+ * Version: 1.3.4
  *
  * Usage:
  *   Used by [StreamingClientImpl]; host apps normally do not construct this directly.

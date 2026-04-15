@@ -16,7 +16,7 @@ import java.util.concurrent.atomic.AtomicReference
  * Description: Validates guard rails without constructing ExoPlayer (no [initialize] call).
  * Author: monigarr@monigarr.com
  * Date: 2026-04-14
- * Version: 1.0.0
+ * Version: 1.3.4
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [28])

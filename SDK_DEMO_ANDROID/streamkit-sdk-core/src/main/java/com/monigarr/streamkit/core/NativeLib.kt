@@ -5,7 +5,7 @@ package com.monigarr.streamkit.core
  * Description: JNI bridge to the streamkit-core native library for sample native integration.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.1.0
+ * Version: 1.3.4
  *
  * Usage:
  *   Instantiate or reference NativeLib where JNI-backed helpers are required; ensure the

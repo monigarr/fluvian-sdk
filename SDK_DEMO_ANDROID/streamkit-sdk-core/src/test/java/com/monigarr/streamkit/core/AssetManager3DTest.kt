@@ -11,7 +11,7 @@ import org.junit.Test
  * Description: Reference-counted GPU asset registry (pressure flow).
  * Author: monigarr@monigarr.com
  * Date: 2026-04-14
- * Version: 1.0.0
+ * Version: 1.3.4
  */
 class AssetManager3DTest {
 

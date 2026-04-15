@@ -5,7 +5,7 @@ package com.monigarr.streamkit.core
  * Description: Minimal playback analytics hooks (privacy-first; no PII in default implementations).
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.2.1
+ * Version: 1.3.4
  *
  * Usage:
  *   Implement for your pipeline or use [NoOpAnalyticsTracker] during bring-up.

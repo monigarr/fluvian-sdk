@@ -10,7 +10,7 @@ import org.junit.Test
  * Description: Default interface methods on [StreamingClient] for test doubles.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-14
- * Version: 1.0.0
+ * Version: 1.3.4
  */
 class StreamingClientStubTest {
 

@@ -2,8 +2,8 @@
  * File: StreamKitInternalComponents.kt
  * Description: Internal composition root for StreamKit playback helpers (not exported to host DI graphs).
  * Author: monigarr@monigarr.com
- * Date: 2026-04-12
- * Version: 1.2.0
+ * Date: 2026-04-15
+ * Version: 1.3.4
  *
  * Usage:
  *   Constructed only inside `streamkit-sdk-core`; keeps factories off the public surface area.

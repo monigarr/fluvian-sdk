@@ -2,8 +2,8 @@
  * File: NetworkHealthMonitor.kt
  * Description: Simulated network profiles for demos and labs; adjusts measured throughput without touching the UI thread.
  * Author: monigarr@monigarr.com
- * Date: 2026-04-12
- * Version: 1.2.0
+ * Date: 2026-04-15
+ * Version: 1.3.4
  *
  * Usage:
  *   Host apps toggle [SimulatedNetworkProfile] to stress ABR/AI paths; production builds keep [SimulatedNetworkProfile.NONE].

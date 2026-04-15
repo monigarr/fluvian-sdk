@@ -2,8 +2,8 @@
  * File: StreamKitSecretStore.kt
  * Description: AES-backed [android.content.SharedPreferences] for integrator secrets (API keys, license tokens) using AndroidX Security Crypto.
  * Author: monigarr@monigarr.com
- * Date: 2026-04-12
- * Version: 1.2.1
+ * Date: 2026-04-15
+ * Version: 1.3.4
  *
  * Usage:
  *   Call [create] once per process; store non-PII credentials referenced by DRM or AI providers outside source control.

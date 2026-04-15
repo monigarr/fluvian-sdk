@@ -11,7 +11,7 @@ import org.junit.runner.RunWith
  * Description: On-device instrumentation smoke tests for the streamkit-sdk-core test application id.
  * Author: monigarr@monigarr.com
  * Date: 2026-04-12
- * Version: 1.1.0
+ * Version: 1.3.4
  *
  * Usage:
  *   Run via `./gradlew :streamkit-sdk-core:connectedDebugAndroidTest` with a device or emulator.
