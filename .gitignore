@@ -1,0 +1,65 @@
+# Build
+/build/
+/.gradle/
+/.idea/
+*.iml
+
+# Local configs
+local.properties
+
+# Secrets
+*.keystore
+*.jks
+.env
+secrets.properties
+
+# AI / Models (CRITICAL)
+*.tflite
+*.pt
+*.onnx
+/models/
+/ai-models/
+/ai/advanced/
+
+# Proprietary
+AIOrchestrator.kt
+AILayerInference.kt
+AIManager.kt
+AIModels.kt
+BandwidthPredictor.kt
+LlmDecisionParser.kt
+OpenAIProvider.kt
+OnDeviceGenAiProvider.kt
+OnDeviceGenAiWarmup.kt
+OnDeviceGenAiDiagnostics.kt
+PlayerOptimizer.kt
+RuleBasedAIProvider.kt
+StreamOrchestrator.kt
+POST_MORTEM.md 
+docs/INTERVIEW_CHECKLIST.md
+EXECUTIVE_BRIEF.md 
+PRD.md 
+PROGRAM_HANDBOOK.md 
+REPOSITORY_FILES.md
+ARCHITECTURE.md
+
+# Experimental / proprietary
+/internal/
+/research/
+/experiments/
+/scripts/
+/adr/
+/docs/
+
+# Logs
+*.log
+
+# Generated
+captures/
+outputs/
+
+# Large assets
+*.mp4
+*.mkv
+*.h264
+*.ts

@@ -1,253 +1,212 @@
-<div id="top"></div>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+# LVSPOC StreamKit
 
+**LVSPOC StreamKit** is an enterprise-grade Android streaming SDK (Kotlin) built on Media3: live and on-demand playback, DRM-ready design, analytics, and an AI-oriented optimization layer—aimed at live sports and other high-performance video products.
 
+| Field | Value |
+|-------|--------|
+| **Program / README version** | 1.3.4 |
+| **Date** | 2026-04-15 |
+| **Author** | monigarr@monigarr.com |
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+---
 
+## Usage notice
 
+This repository is provided for **evaluation and demonstration**. All materials are proprietary to **MoniGarr** and may not be reused, copied, or distributed without permission. For enterprise modules or integration support, contact **monigarr@monigarr.com**.
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
+---
 
-  <h3 align="center">Best-README-Template</h3>
+## Why this exists
 
-  <p align="center">
-    An awesome README template to jumpstart your projects!
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
-  </p>
-</div>
+Modern streaming stacks need more than a player:
 
+- Predictable performance on constrained devices  
+- Observability and analytics without default PII  
+- Room for intelligent adaptation (telemetry + policy, AI paths where appropriate)  
+- A reusable SDK boundary so product teams ship faster  
 
+This repo shows how those concerns are structured end to end in one reference program.
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+---
 
+## Open core model
 
+This repository is the **open core** slice of the StreamKit platform. **Included here:** SDK architecture, playback foundation, DRM-ready structure, analytics contracts, and AI abstraction hooks.
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+**Not in this repo** (commercial / enterprise layers): AI-driven optimization as shipped to paying customers, deep performance tuning packs, and full production DRM operational playbooks. Use the contact above for access to those layers.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+---
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+## New team: start here
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+- **Sponsors and executives** who will not browse the tree: **[docs/EXECUTIVE_BRIEF.md](docs/EXECUTIVE_BRIEF.md)** — one page, PDF-friendly.  
+- **Anyone taking over** the program (engineering, product, security, leadership): **[docs/PROGRAM_HANDBOOK.md](docs/PROGRAM_HANDBOOK.md)** — role-based reading order, first-week checklist, glossary, CI notes, then pointers into the PRD and architecture.
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+---
 
-Use the `BLANK_README.md` to get started.
+## Documentation map
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+| Document | Audience | Purpose |
+|----------|-----------|---------|
+| **[docs/EXECUTIVE_BRIEF.md](docs/EXECUTIVE_BRIEF.md)** | Sponsors, board, procurement | Scope, metrics, governance; export to PDF for packets |
+| **[docs/PROGRAM_HANDBOOK.md](docs/PROGRAM_HANDBOOK.md)** | Transition / onboarding | Handoff spine, repo map, checklists, glossary, CI troubleshooting |
+| [docs/PRD.md](docs/PRD.md) | Product, sponsors, engineering | Scope, NFRs, success metrics, enterprise pillars |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | Engineering, security, platform | APIs, ExoPlayer/Media3, DRM, AI, distribution, testing, file-header standard |
+| **README.md** (this file) | Everyone | Summary, version matrix, layout, how to run the demo |
 
+### Version alignment
 
+`PRD.md`, `ARCHITECTURE.md`, and this README share the **same program version** for each named documentation release (**1.3.4** today). Runtime parity:
 
-### Built With
+- **`EchelonProgramInfo.DOCUMENT_VERSION`** in `streamkit-sdk-core` mirrors that value.  
+- The demo app **`versionName`** (shown on the SDK features badge via `BuildConfig.VERSION_NAME`) **must** match; `:app:testDebugUnitTest` fails on mismatch so CI and the in-app label cannot drift from docs.  
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+The **program handbook** uses the same aligned version for each drop but is not wired into those runtime checks. SemVer history lives in [CHANGELOG.md](CHANGELOG.md).
 
-* [Next.js](https://nextjs.org/)
-* [React.js](https://reactjs.org/)
-* [Vue.js](https://vuejs.org/)
-* [Angular](https://angular.io/)
-* [Svelte](https://svelte.dev/)
-* [Laravel](https://laravel.com)
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
+---
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Executive summary
 
+StreamKit combines **modular SDK design**, **Widevine-oriented DRM**, **analytics and observability**, and an **AI-first** optimization story (MoniGarr operating model and **M.I.L.E.**: Measure, Instrument, Learn, Execute). The program targets **enterprise procurement**: stable APIs, meaningful tests, explicit privacy and security posture, and **mandatory Echelon file headers** on new or materially revised sources and scripts ([architecture §25](docs/ARCHITECTURE.md#25-echelon-enterprise-source-and-script-header-standard)).
 
+---
 
-<!-- GETTING STARTED -->
-## Getting Started
+## Repository layout
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+| Path | Description |
+|------|-------------|
+| `docs/EXECUTIVE_BRIEF.md` | Sponsor one-pager (markdown; export to PDF as needed) |
+| `docs/PROGRAM_HANDBOOK.md` | Program takeover and onboarding spine |
+| `docs/adr/` | Architecture Decision Records (start from `0001-template.md`) |
+| `docs/PRD.md` | Product requirements |
+| `docs/ARCHITECTURE.md` | Technical specification and enterprise standards |
+| `SDK_DEMO_ANDROID/` | Android Studio project: demo app + `streamkit-sdk-core` |
+| `scripts/` | Echelon header check and JaCoCo coverage gates (local + CI) |
+| `.github/workflows/` | GitHub Actions |
+| `CHANGELOG.md` | SemVer history |
+| `LICENSE.txt` | License terms |
 
-### Prerequisites
+---
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+## Objectives (aligned with PRD)
 
-### Installation
+- Ship a **production-ready** streaming SDK for Android.  
+- Demonstrate **HLS** (live + DVR), **DASH** (`.mpd`) lab fixtures where applicable, adaptive bitrate, and low-latency readiness.  
+- Keep a **DRM-ready** architecture (Widevine, token-aware license flows).  
+- Ship **analytics + observability** with privacy-first defaults.  
+- Enable **fast integration** without sacrificing **SemVer**, **tests**, or **documentation sync**.
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+---
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/your_username_/Project-Name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+## Enterprise pillars (summary)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+| Pillar | Commitment |
+|--------|------------|
+| **Privacy** | Minimized data; no PII in default analytics; governance for AI and frame hooks |
+| **Security** | HTTPS; secrets out of source; encrypted key storage; careful logging |
+| **Usability** | Clear lifecycle APIs; demo parity with documented flows |
+| **Accessibility** | WCAG-oriented UI patterns on product surfaces |
+| **Maintenance** | SemVer, changelog, ADRs; new or revised units use the **Enterprise header** (author `monigarr@monigarr.com`, date, version, usage, example) |
+| **Testing** | Unit, integration, instrumented, security, and accessibility expectations — [architecture §26](docs/ARCHITECTURE.md#26-enterprise-testing-strategy-and-coverage) |
 
+---
 
+## Features (product summary)
 
-<!-- USAGE EXAMPLES -->
-## Usage
+| Area | Capabilities |
+|------|----------------|
+| **Live streaming** | HLS (live + DVR), DASH (`.mpd`), ABR, low-latency readiness |
+| **SDK** | Modular API; lifecycle-safe player abstraction |
+| **DRM** | Widevine-oriented design; token support for licenses |
+| **Analytics** | Lifecycle, buffering, errors; privacy-minimized sessions |
+| **Sports UX** | Live indicator, event markers, latency display |
+| **Advanced (optional)** | Extended rendering / 3D; on-device GenAI (e.g. ML Kit / Gemini Nano where AICore exists) and cloud paths — [architecture §12–§15](docs/ARCHITECTURE.md#12-ai-powered-streaming-optimization-layer-mile-extension), [§21–§23](docs/ARCHITECTURE.md#21-advanced-streaming-profiling-and-rendering) |
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+---
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+## Success metrics (targets)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+| Metric | Target |
+|--------|--------|
+| Playback start | Under 2 seconds |
+| Buffer ratio | Under 2% |
+| Crash-free sessions | Above 99.9% |
+| Typical SDK integration | Under one day |
 
+---
 
+## Getting started (reference project)
 
-<!-- ROADMAP -->
-## Roadmap
+1. Clone the repository.  
+2. Open **`SDK_DEMO_ANDROID/`** in **Android Studio** (current stable channel).  
+3. Sync Gradle and run the **app** configuration on a device or emulator.  
+4. Use the in-app **stream picker** (`MainActivity`): curated **public HTTPS** samples — **Big Buck Bunny** (Mux), **Apple Advanced HDR** (fMP4), **Tears of Steel** (Unified Streaming), **Unified Live (SCTE35)**. These are for demos and manual QA only, not a content SLA. The SDK also accepts **DASH** when the manifest URL ends in `.mpd`; add your own lab URL to the picker if you need `.mpd` in the reference UI.  
+5. Read **`streamkit-sdk-core`** sources and tests as the baseline described in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+On **Windows**, from `SDK_DEMO_ANDROID` use `.\gradlew.bat` in place of `./gradlew` in shell examples and in [CHANGELOG.md](CHANGELOG.md).
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+---
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+## Example integration (conceptual)
 
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). The Media3-backed implementation is **`StreamingClientImpl`** in `com.monigarr.streamkit.core.player`.
 
+```kotlin
+import com.monigarr.streamkit.core.StreamConfig
+import com.monigarr.streamkit.core.StreamingClient
+import com.monigarr.streamkit.core.player.StreamingClientImpl
 
-<!-- CONTRIBUTING -->
-## Contributing
+val client: StreamingClient = StreamingClientImpl(
+    context = context,
+    analytics = myAnalyticsTracker,
+    drmConfig = optionalWidevineConfig,
+)
+client.initialize(StreamConfig(enableBandwidthPredictorHints = true)) {
+    client.play("https://example.com/live/playlist.m3u8")
+}
+// pause(), stop(), release() as required; bind a Surface via client.bindVideoSurface(...)
+```
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+---
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
+## Contributing and change control
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- Follow **style, headers, and testing** in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).  
+- For API or behavior changes: update **PRD** when user-visible or compliance-related, **ARCHITECTURE**, and this **README** in one coherent version bump.  
+- Append [CHANGELOG.md](CHANGELOG.md) with SemVer notes and migrations.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+---
 
+## Enterprise CI (headers + coverage + API check)
 
+| Artifact | Role |
+|----------|------|
+| [scripts/check_echelon_headers.py](scripts/check_echelon_headers.py) | Validates Echelon headers ([architecture §25](docs/ARCHITECTURE.md#25-echelon-enterprise-source-and-script-header-standard)) |
+| [scripts/check_jacoco_coverage.py](scripts/check_jacoco_coverage.py) | Enforces minimum **LINE** coverage from JaCoCo XML ([architecture §26](docs/ARCHITECTURE.md#26-enterprise-testing-strategy-and-coverage)) |
+| [.github/workflows/echelon-ci.yml](.github/workflows/echelon-ci.yml) | Headers → Android **NDK** (CMake) → `./gradlew :streamkit-sdk-core:apiCheck :streamkit-sdk-core:testDebugUnitTest :app:testDebugUnitTest :streamkit-sdk-core:jacocoStreamkitCoreDebug :app:jacocoAppDebug` → **core ≥ 10%** LINE, **app ≥ 1%** LINE |
 
-<!-- LICENSE -->
+**Local parity with CI** (from repo root, after a successful Gradle run):
+
+```text
+python scripts/check_echelon_headers.py
+```
+
+```text
+cd SDK_DEMO_ANDROID
+./gradlew :streamkit-sdk-core:apiCheck :streamkit-sdk-core:testDebugUnitTest :app:testDebugUnitTest :streamkit-sdk-core:jacocoStreamkitCoreDebug :app:jacocoAppDebug
+cd ..
+python scripts/check_jacoco_coverage.py SDK_DEMO_ANDROID/streamkit-sdk-core/build/reports/jacoco/jacocoStreamkitCoreDebug/jacoco.xml 0.10
+python scripts/check_jacoco_coverage.py SDK_DEMO_ANDROID/app/build/reports/jacoco/jacocoAppDebug/jacoco.xml 0.01
+```
+
+---
+
 ## License
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+See [LICENSE.txt](LICENSE.txt).
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+---
 
+## Advisory and engineering services
 
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+MoniGarr works with teams on high-performance mobile and streaming systems: Android SDKs, playback optimization, AI-native integration, and scale-up architecture. **monigarr@monigarr.com**
