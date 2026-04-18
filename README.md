@@ -5,10 +5,8 @@
 
 # Fluvian SDK
 
-<video width="100%" controls playsinline preload="metadata">
-  <source src="videos/Fluvian_SDK_App_Demo.mp4" type="video/mp4" />
-  Your browser does not support embedded video — <a href="videos/Fluvian_SDK_App_Demo.mp4">open the demo file</a>.
-</video>
+[![Watch the video](videos/Fluvian_SDK_App_Demo.mp4)](videos/Fluvian_SDK_App_Demo.mp4)
+
 
 **AI-first Android streaming SDK for live video, DRM, and real-time QoS optimization.**
 
