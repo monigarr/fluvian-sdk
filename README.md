@@ -14,7 +14,7 @@ Build high-performance streaming apps with **production-grade playback + adaptiv
 
 ---
 
-![Fluvian SDK — Open Core banner](docs/assets/readme-hero.svg)
+![Fluvian SDK — Open Core banner](images/fluvian_sdk_demo_social_card.png)
 
 *Screen recording: commit **`videos/Fluvian_SDK_App_Demo.mp4`** for the player above (see `.gitignore` exception). For full interactive playback and QoS, clone and run **`SDK_DEMO_ANDROID`** in Android Studio.*
 
