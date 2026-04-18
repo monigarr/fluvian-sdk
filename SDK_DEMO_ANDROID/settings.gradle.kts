@@ -1,12 +1,12 @@
 /**
  * File: settings.gradle.kts
- * Description: Gradle settings for plugin management, repositories, and included modules (app, streamkit-sdk-core).
+ * Description: Gradle settings for plugin management, repositories, and included modules (app, fluvian-sdk-core).
  * Author: monigarr@monigarr.com
  * Date: 2026-04-15
- * Version: 1.3.4
+ * Version: 1.3.6
  *
  * Usage:
- *   Consumed automatically by Gradle; defines `rootProject.name` and `include` for modules.
+ *   Consumed automatically by Gradle; defines `rootProject.name` and `include` for app and Open Core (`:fluvian-sdk-core`).
  *
  * Usage example:
  *   ./gradlew projects
@@ -35,6 +35,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "LVSPOC StreamKit"
+rootProject.name = "Fluvian SDK"
 include(":app")
-include(":streamkit-sdk-core")
+include(":fluvian-sdk-core")

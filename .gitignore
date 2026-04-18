@@ -11,9 +11,13 @@ local.properties
 *.keystore
 *.jks
 .env
+.env.*
 secrets.properties
+*.pem
+*.key
+*.p12
 
-# AI / Models (CRITICAL)
+# AI / Models (CRITICAL — never commit weights)
 *.tflite
 *.pt
 *.onnx
@@ -21,45 +25,37 @@ secrets.properties
 /ai-models/
 /ai/advanced/
 
-# Proprietary
-AIOrchestrator.kt
-AILayerInference.kt
-AIManager.kt
-AIModels.kt
-BandwidthPredictor.kt
-LlmDecisionParser.kt
-OpenAIProvider.kt
-OnDeviceGenAiProvider.kt
-OnDeviceGenAiWarmup.kt
-OnDeviceGenAiDiagnostics.kt
-PlayerOptimizer.kt
-RuleBasedAIProvider.kt
-StreamOrchestrator.kt
-POST_MORTEM.md 
-docs/INTERVIEW_CHECKLIST.md
-EXECUTIVE_BRIEF.md 
-PRD.md 
-PROGRAM_HANDBOOK.md 
-REPOSITORY_FILES.md
-ARCHITECTURE.md
+# AI / API configs
+ai-config.json
+openai-config.json
+firebase-config.json
 
-# Experimental / proprietary
-/internal/
+# Proprietary research / scratch (optional local paths only)
 /research/
 /experiments/
-/scripts/
 /adr/
-/docs/
+/docs/internal/
+# Optional local-only commercial overlays (never required for Open Core builds)
+/fluvian-sdk-pro-genai/
+fluvian-sdk-pro-*/
+README_DRAFT.md
+README_DRAFT_ENGINE_REVIEW.md
 
-# Logs
+# NOTE: Open Core ships committed stub implementations for AI/QoS facades.
+# Do NOT re-add filename patterns here that would hide tracked sources from `git status` / fresh clones.
+
+# Local datasets / logs
+*.csv
 *.log
+*.jsonl
 
 # Generated
 captures/
 outputs/
 
-# Large assets
+# Large assets (README demo may be tracked; exception below)
 *.mp4
+!videos/Fluvian_SDK_App_Demo.mp4
 *.mkv
 *.h264
 *.ts

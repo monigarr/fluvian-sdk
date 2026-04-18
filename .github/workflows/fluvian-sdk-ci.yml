@@ -1,0 +1,91 @@
+# File: fluvian-sdk-ci.yml
+# Description: GitHub Actions workflow for Echelon-format headers, Open Core layout, binary API checks, tests, assemble, and JaCoCo gates.
+# Author: monigarr@monigarr.com
+# Date: 2026-04-18
+# Version: 1.3.6
+#
+# Usage:
+#   Runs on push and pull_request to default branches; requires Python 3 and Android SDK for Gradle.
+#
+# Usage example:
+#   gh workflow run fluvian-sdk-ci.yml
+
+name: Fluvian SDK CI
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  fluvian_sdk_ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Echelon-format header gate (ARCHITECTURE §25)
+        run: python3 scripts/check_echelon_headers.py
+
+      - name: Open Core layout + native + API baseline validation
+        run: python3 scripts/validate_open_core_layout.py
+
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Set up Gradle (dependency cache)
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Accept Android licenses
+        run: yes | sdkmanager --licenses || true
+
+      - name: Install NDK (CMake native module)
+        run: yes | sdkmanager "ndk;26.3.11579264"
+
+      - name: Open Core binary API compatibility (kotlinx binary validator)
+        working-directory: SDK_DEMO_ANDROID
+        run: |
+          chmod +x gradlew
+          ./gradlew :fluvian-sdk-core:apiCheck --no-daemon --stacktrace
+
+      - name: Unit tests, demo assemble, JaCoCo (Open Core + app)
+        working-directory: SDK_DEMO_ANDROID
+        run: |
+          ./gradlew :fluvian-sdk-core:testDebugUnitTest :app:testDebugUnitTest :app:assembleDebug :fluvian-sdk-core:jacocoFluvianSdkCoreDebug :app:jacocoAppDebug --no-daemon --stacktrace
+
+      # Phase 8 coverage floors (raise over time). Current local LINE ratios: core ~44%, app ~1.6%.
+      - name: JaCoCo LINE coverage — fluvian-sdk-core (>= 15%)
+        run: python3 scripts/check_jacoco_coverage.py SDK_DEMO_ANDROID/fluvian-sdk-core/build/reports/jacoco/jacocoFluvianSdkCoreDebug/jacoco.xml 0.15
+
+      - name: JaCoCo LINE coverage — app (>= 1.2%; Compose-heavy demo)
+        run: python3 scripts/check_jacoco_coverage.py SDK_DEMO_ANDROID/app/build/reports/jacoco/jacocoAppDebug/jacoco.xml 0.012
+
+      - name: Upload JaCoCo HTML/XML (always)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco-reports
+          path: |
+            SDK_DEMO_ANDROID/fluvian-sdk-core/build/reports/jacoco/
+            SDK_DEMO_ANDROID/app/build/reports/jacoco/
+          if-no-files-found: warn

@@ -2,7 +2,7 @@
 # Description: Version catalog for AGP, Kotlin, Compose, and test libraries (single source of dependency pins).
 # Author: monigarr@monigarr.com
 # Date: 2026-04-15
-# Version: 1.3.4
+# Version: 1.3.6
 #
 # Usage:
 #   Referenced from build.gradle.kts via `libs.plugins.*` and `libs.*` coordinates.

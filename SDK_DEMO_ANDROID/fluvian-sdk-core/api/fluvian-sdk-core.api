@@ -1,0 +1,566 @@
+public final class com/fluvian/sdk/core/AnalyticsStreamConfigSummary {
+	public fun <init> (ZZLjava/lang/String;Ljava/lang/String;I)V
+	public synthetic fun <init> (ZZLjava/lang/String;Ljava/lang/String;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()I
+	public final fun copy (ZZLjava/lang/String;Ljava/lang/String;I)Lcom/fluvian/sdk/core/AnalyticsStreamConfigSummary;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/AnalyticsStreamConfigSummary;ZZLjava/lang/String;Ljava/lang/String;IILjava/lang/Object;)Lcom/fluvian/sdk/core/AnalyticsStreamConfigSummary;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAiProviderTypeName ()Ljava/lang/String;
+	public final fun getAlwaysOnAiOptimization ()Z
+	public final fun getAnalyticsTenantKey ()Ljava/lang/String;
+	public final fun getBandwidthPredictorHints ()Z
+	public final fun getClientMetadataEntryCount ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/fluvian/sdk/core/AnalyticsTracker {
+	public abstract fun onBufferEnd ()V
+	public abstract fun onBufferStart ()V
+	public abstract fun onError (Ljava/lang/Throwable;)V
+	public abstract fun onPlay ()V
+	public fun onPlaybackStateChanged (I)V
+	public fun onSeek (JJ)V
+	public fun onSessionEnd (Ljava/lang/String;)V
+	public fun onSessionStart (Ljava/lang/String;)V
+	public fun onSportsEventMarker (Ljava/lang/String;)V
+	public fun onStreamInitialized (Lcom/fluvian/sdk/core/AnalyticsStreamConfigSummary;)V
+}
+
+public final class com/fluvian/sdk/core/AnalyticsTracker$DefaultImpls {
+	public static fun onPlaybackStateChanged (Lcom/fluvian/sdk/core/AnalyticsTracker;I)V
+	public static fun onSeek (Lcom/fluvian/sdk/core/AnalyticsTracker;JJ)V
+	public static fun onSessionEnd (Lcom/fluvian/sdk/core/AnalyticsTracker;Ljava/lang/String;)V
+	public static fun onSessionStart (Lcom/fluvian/sdk/core/AnalyticsTracker;Ljava/lang/String;)V
+	public static fun onSportsEventMarker (Lcom/fluvian/sdk/core/AnalyticsTracker;Ljava/lang/String;)V
+	public static fun onStreamInitialized (Lcom/fluvian/sdk/core/AnalyticsTracker;Lcom/fluvian/sdk/core/AnalyticsStreamConfigSummary;)V
+}
+
+public final class com/fluvian/sdk/core/DrmConfig {
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Lcom/fluvian/sdk/core/DrmConfig;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/DrmConfig;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/fluvian/sdk/core/DrmConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDrm_ssm ()Ljava/lang/String;
+	public final fun getDrm_token ()Ljava/lang/String;
+	public final fun getHeaders ()Ljava/util/Map;
+	public final fun getLicenseUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/EchelonProgramInfo {
+	public static final field DOCUMENT_VERSION Ljava/lang/String;
+	public static final field INSTANCE Lcom/fluvian/sdk/core/EchelonProgramInfo;
+	public static final field PROGRAM_NAME Ljava/lang/String;
+	public final fun describe ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/NativeLib {
+	public static final field Companion Lcom/fluvian/sdk/core/NativeLib$Companion;
+	public fun <init> ()V
+	public final fun stringFromJNI ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/NativeLib$Companion {
+}
+
+public final class com/fluvian/sdk/core/NoOpAnalyticsTracker : com/fluvian/sdk/core/AnalyticsTracker {
+	public static final field INSTANCE Lcom/fluvian/sdk/core/NoOpAnalyticsTracker;
+	public fun onBufferEnd ()V
+	public fun onBufferStart ()V
+	public fun onError (Ljava/lang/Throwable;)V
+	public fun onPlay ()V
+	public fun onPlaybackStateChanged (I)V
+	public fun onSeek (JJ)V
+	public fun onSessionEnd (Ljava/lang/String;)V
+	public fun onSessionStart (Ljava/lang/String;)V
+	public fun onSportsEventMarker (Ljava/lang/String;)V
+	public fun onStreamInitialized (Lcom/fluvian/sdk/core/AnalyticsStreamConfigSummary;)V
+}
+
+public final class com/fluvian/sdk/core/StreamConfig {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/util/Map;ZZJLcom/fluvian/sdk/core/aicore/AIConfig;Ljava/lang/Long;Lcom/fluvian/sdk/core/branding/SdkBrandBundle;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;Ljava/util/Map;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Map;ZZJLcom/fluvian/sdk/core/aicore/AIConfig;Ljava/lang/Long;Lcom/fluvian/sdk/core/branding/SdkBrandBundle;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/util/Map;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()J
+	public final fun component6 ()Lcom/fluvian/sdk/core/aicore/AIConfig;
+	public final fun component7 ()Ljava/lang/Long;
+	public final fun component8 ()Lcom/fluvian/sdk/core/branding/SdkBrandBundle;
+	public final fun component9 ()Lcom/fluvian/sdk/core/aicore/AIProviderResolver;
+	public final fun copy (Ljava/lang/String;Ljava/util/Map;ZZJLcom/fluvian/sdk/core/aicore/AIConfig;Ljava/lang/Long;Lcom/fluvian/sdk/core/branding/SdkBrandBundle;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;Ljava/util/Map;)Lcom/fluvian/sdk/core/StreamConfig;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/StreamConfig;Ljava/lang/String;Ljava/util/Map;ZZJLcom/fluvian/sdk/core/aicore/AIConfig;Ljava/lang/Long;Lcom/fluvian/sdk/core/branding/SdkBrandBundle;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;Ljava/util/Map;ILjava/lang/Object;)Lcom/fluvian/sdk/core/StreamConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAiConfig ()Lcom/fluvian/sdk/core/aicore/AIConfig;
+	public final fun getAiOptimizationIntervalMs ()J
+	public final fun getAiProviderResolver ()Lcom/fluvian/sdk/core/aicore/AIProviderResolver;
+	public final fun getClientMetadata ()Ljava/util/Map;
+	public final fun getEnableAlwaysOnAiOptimization ()Z
+	public final fun getEnableBandwidthPredictorHints ()Z
+	public final fun getHttpHeaders ()Ljava/util/Map;
+	public final fun getLiveTargetOffsetMs ()Ljava/lang/Long;
+	public final fun getSdkBrand ()Lcom/fluvian/sdk/core/branding/SdkBrandBundle;
+	public final fun getUserAgent ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/fluvian/sdk/core/StreamingClient {
+	public fun assetManager3D ()Lcom/fluvian/sdk/core/assets/AssetManager3D;
+	public fun bandwidthPredictor ()Lcom/fluvian/sdk/core/abr/BandwidthPredictor;
+	public fun bindVideoSurface (Landroid/view/Surface;)V
+	public abstract fun initialize (Lcom/fluvian/sdk/core/StreamConfig;Lkotlin/jvm/functions/Function0;)V
+	public static synthetic fun initialize$default (Lcom/fluvian/sdk/core/StreamingClient;Lcom/fluvian/sdk/core/StreamConfig;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+	public fun networkHealthMonitor ()Lcom/fluvian/sdk/core/network/NetworkHealthMonitor;
+	public abstract fun pause ()V
+	public abstract fun play (Ljava/lang/String;)V
+	public abstract fun player ()Landroidx/media3/common/Player;
+	public fun postPlayerOperation (Lkotlin/jvm/functions/Function1;)V
+	public fun refreshDiagnostics (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun release ()V
+	public abstract fun stop ()V
+}
+
+public final class com/fluvian/sdk/core/StreamingClient$DefaultImpls {
+	public static fun assetManager3D (Lcom/fluvian/sdk/core/StreamingClient;)Lcom/fluvian/sdk/core/assets/AssetManager3D;
+	public static fun bandwidthPredictor (Lcom/fluvian/sdk/core/StreamingClient;)Lcom/fluvian/sdk/core/abr/BandwidthPredictor;
+	public static fun bindVideoSurface (Lcom/fluvian/sdk/core/StreamingClient;Landroid/view/Surface;)V
+	public static synthetic fun initialize$default (Lcom/fluvian/sdk/core/StreamingClient;Lcom/fluvian/sdk/core/StreamConfig;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+	public static fun networkHealthMonitor (Lcom/fluvian/sdk/core/StreamingClient;)Lcom/fluvian/sdk/core/network/NetworkHealthMonitor;
+	public static fun postPlayerOperation (Lcom/fluvian/sdk/core/StreamingClient;Lkotlin/jvm/functions/Function1;)V
+	public static fun refreshDiagnostics (Lcom/fluvian/sdk/core/StreamingClient;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class com/fluvian/sdk/core/StreamingDiagnostics {
+	public fun <init> (ZIJJJILjava/lang/String;JZ)V
+	public synthetic fun <init> (ZIJJJILjava/lang/String;JZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()I
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()I
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()J
+	public final fun component9 ()Z
+	public final fun copy (ZIJJJILjava/lang/String;JZ)Lcom/fluvian/sdk/core/StreamingDiagnostics;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/StreamingDiagnostics;ZIJJJILjava/lang/String;JZILjava/lang/Object;)Lcom/fluvian/sdk/core/StreamingDiagnostics;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBufferedPositionMs ()J
+	public final fun getCurrentPositionMs ()J
+	public final fun getDurationMs ()J
+	public final fun getLiveOffsetMs ()J
+	public final fun getPlaybackState ()I
+	public final fun getSelectedTextTrackSummary ()Ljava/lang/String;
+	public final fun getTextTrackCount ()I
+	public fun hashCode ()I
+	public final fun isCurrentMediaItemLive ()Z
+	public final fun isSeekable ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/abr/AbrHint {
+	public fun <init> (IJLjava/lang/String;)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()Ljava/lang/String;
+	public final fun copy (IJLjava/lang/String;)Lcom/fluvian/sdk/core/abr/AbrHint;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/abr/AbrHint;IJLjava/lang/String;ILjava/lang/Object;)Lcom/fluvian/sdk/core/abr/AbrHint;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEstimatedThroughputBps ()J
+	public final fun getReason ()Ljava/lang/String;
+	public final fun getRecommendedMaxVideoBitrate ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/abr/BandwidthPredictor {
+	public fun <init> (Lcom/fluvian/sdk/core/network/NetworkHealthMonitor;)V
+	public fun <init> (Lcom/fluvian/sdk/core/network/NetworkHealthMonitor;Lkotlinx/coroutines/CoroutineDispatcher;)V
+	public synthetic fun <init> (Lcom/fluvian/sdk/core/network/NetworkHealthMonitor;Lkotlinx/coroutines/CoroutineDispatcher;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getHints ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun onPlayerBandwidthEstimate (J)V
+	public final fun resetSession ()V
+}
+
+public final class com/fluvian/sdk/core/aicore/AIConfig {
+	public fun <init> (Lcom/fluvian/sdk/core/aicore/AIProviderType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+	public synthetic fun <init> (Lcom/fluvian/sdk/core/aicore/AIProviderType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public final fun component10 ()Z
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Z
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/lang/String;
+	public final fun component9 ()Ljava/lang/String;
+	public final fun copy (Lcom/fluvian/sdk/core/aicore/AIProviderType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Lcom/fluvian/sdk/core/aicore/AIConfig;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/aicore/AIConfig;Lcom/fluvian/sdk/core/aicore/AIProviderType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lcom/fluvian/sdk/core/aicore/AIConfig;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getApiKey ()Ljava/lang/String;
+	public final fun getEndpoint ()Ljava/lang/String;
+	public final fun getLocalModelPath ()Ljava/lang/String;
+	public final fun getModelName ()Ljava/lang/String;
+	public final fun getProviderType ()Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public final fun getStructuredOutputJsonSchema ()Ljava/lang/String;
+	public final fun getStructuredOutputSchemaName ()Ljava/lang/String;
+	public final fun getStructuredOutputStrict ()Z
+	public final fun getSystemPrompt ()Ljava/lang/String;
+	public final fun getUseAzureStyleApiKeyHeader ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/aicore/AILayerInference {
+	public fun <init> ()V
+	public fun <init> (Lcom/fluvian/sdk/core/aicore/AIManager;)V
+	public fun <init> (Lcom/fluvian/sdk/core/aicore/AIManager;Lkotlin/coroutines/CoroutineContext;)V
+	public synthetic fun <init> (Lcom/fluvian/sdk/core/aicore/AIManager;Lkotlin/coroutines/CoroutineContext;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Lcom/fluvian/sdk/core/aicore/AIManager;Lkotlinx/coroutines/CoroutineDispatcher;)V
+	public final fun configure (Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;)V
+	public static synthetic fun configure$default (Lcom/fluvian/sdk/core/aicore/AILayerInference;Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;ILjava/lang/Object;)V
+	public final fun infer (Lcom/fluvian/sdk/core/aicore/QoSData;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun inferFlow (Lkotlinx/coroutines/flow/Flow;)Lkotlinx/coroutines/flow/Flow;
+	public final fun shutdown ()V
+}
+
+public final class com/fluvian/sdk/core/aicore/AIManager {
+	public fun <init> ()V
+	public final fun configure (Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;)V
+	public static synthetic fun configure$default (Lcom/fluvian/sdk/core/aicore/AIManager;Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;Lcom/fluvian/sdk/core/aicore/AIProviderResolver;ILjava/lang/Object;)V
+	public final fun predict (Lcom/fluvian/sdk/core/aicore/QoSData;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public final fun shutdown ()V
+}
+
+public final class com/fluvian/sdk/core/aicore/AIOrchestrator {
+	public fun <init> (Lcom/fluvian/sdk/core/aicore/AIProvider;Lcom/fluvian/sdk/core/player/PlayerOptimizer;)V
+	public final fun process (Lcom/fluvian/sdk/core/aicore/QoSData;)V
+}
+
+public abstract interface class com/fluvian/sdk/core/aicore/AIProvider {
+	public abstract fun initialize (Lcom/fluvian/sdk/core/aicore/AIConfig;)V
+	public abstract fun predict (Lcom/fluvian/sdk/core/aicore/QoSData;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public abstract fun shutdown ()V
+}
+
+public final class com/fluvian/sdk/core/aicore/AIProviderFactory {
+	public static final field INSTANCE Lcom/fluvian/sdk/core/aicore/AIProviderFactory;
+	public final fun create (Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;)Lcom/fluvian/sdk/core/aicore/AIProvider;
+	public static synthetic fun create$default (Lcom/fluvian/sdk/core/aicore/AIProviderFactory;Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;ILjava/lang/Object;)Lcom/fluvian/sdk/core/aicore/AIProvider;
+}
+
+public abstract interface class com/fluvian/sdk/core/aicore/AIProviderResolver {
+	public abstract fun resolve (Lcom/fluvian/sdk/core/aicore/AIConfig;Landroid/content/Context;)Lcom/fluvian/sdk/core/aicore/AIProvider;
+}
+
+public final class com/fluvian/sdk/core/aicore/AIProviderType : java/lang/Enum {
+	public static final field CUSTOM_ENTERPRISE Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public static final field LOCAL Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public static final field ON_DEVICE_GENAI Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public static final field OPENAI Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/fluvian/sdk/core/aicore/AIProviderType;
+	public static fun values ()[Lcom/fluvian/sdk/core/aicore/AIProviderType;
+}
+
+public final class com/fluvian/sdk/core/aicore/AiModelsKt {
+	public static final fun getDEFAULT_OPTIMIZATION_JSON_SCHEMA ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/aicore/LlmDecisionParser {
+	public static final field INSTANCE Lcom/fluvian/sdk/core/aicore/LlmDecisionParser;
+	public final fun parseLlmDecisionText (Ljava/lang/String;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public final fun parseOptimizationDecisionFromModelContent (Ljava/lang/String;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+}
+
+public final class com/fluvian/sdk/core/aicore/OnDeviceGenAiDiagnostics {
+	public static final field INSTANCE Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiDiagnostics;
+	public final fun describe ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/aicore/OnDeviceGenAiProvider : com/fluvian/sdk/core/aicore/AIProvider {
+	public fun <init> (Landroid/content/Context;)V
+	public fun initialize (Lcom/fluvian/sdk/core/aicore/AIConfig;)V
+	public fun predict (Lcom/fluvian/sdk/core/aicore/QoSData;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public fun shutdown ()V
+}
+
+public final class com/fluvian/sdk/core/aicore/OnDeviceGenAiReadiness : java/lang/Enum {
+	public static final field AVAILABLE Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiReadiness;
+	public static final field UNAVAILABLE Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiReadiness;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiReadiness;
+	public static fun values ()[Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiReadiness;
+}
+
+public final class com/fluvian/sdk/core/aicore/OnDeviceGenAiWarmup {
+	public static final field INSTANCE Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiWarmup;
+	public final fun awaitFeatureReady (JLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun awaitFeatureReady$default (Lcom/fluvian/sdk/core/aicore/OnDeviceGenAiWarmup;JLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class com/fluvian/sdk/core/aicore/OpenAIProvider : com/fluvian/sdk/core/aicore/AIProvider {
+	public fun <init> ()V
+	public fun initialize (Lcom/fluvian/sdk/core/aicore/AIConfig;)V
+	public fun predict (Lcom/fluvian/sdk/core/aicore/QoSData;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public fun shutdown ()V
+}
+
+public final class com/fluvian/sdk/core/aicore/OptimizationDecision : java/lang/Enum {
+	public static final field INCREASE_QUALITY Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public static final field REDUCE_QUALITY Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public static final field STABILIZE Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public static fun values ()[Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+}
+
+public final class com/fluvian/sdk/core/aicore/QoSData {
+	public fun <init> (IJII)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun component3 ()I
+	public final fun component4 ()I
+	public final fun copy (IJII)Lcom/fluvian/sdk/core/aicore/QoSData;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/aicore/QoSData;IJIIILjava/lang/Object;)Lcom/fluvian/sdk/core/aicore/QoSData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBitrate ()I
+	public final fun getBufferHealth ()J
+	public final fun getDroppedFrames ()I
+	public final fun getNetworkSpeedKbps ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/aicore/RuleBasedAIProvider : com/fluvian/sdk/core/aicore/AIProvider {
+	public fun <init> ()V
+	public fun initialize (Lcom/fluvian/sdk/core/aicore/AIConfig;)V
+	public fun predict (Lcom/fluvian/sdk/core/aicore/QoSData;)Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public fun shutdown ()V
+}
+
+public final class com/fluvian/sdk/core/assets/AssetManager3D {
+	public fun <init> ()V
+	public fun <init> (Lkotlinx/coroutines/CoroutineDispatcher;)V
+	public synthetic fun <init> (Lkotlinx/coroutines/CoroutineDispatcher;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun cancel ()V
+	public final fun getPressure ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun release (Ljava/lang/String;)V
+	public final fun retain (Ljava/lang/String;J)V
+	public static synthetic fun retain$default (Lcom/fluvian/sdk/core/assets/AssetManager3D;Ljava/lang/String;JILjava/lang/Object;)V
+}
+
+public final class com/fluvian/sdk/core/assets/GpuAssetPressure {
+	public fun <init> (IJ)V
+	public final fun component1 ()I
+	public final fun component2 ()J
+	public final fun copy (IJ)Lcom/fluvian/sdk/core/assets/GpuAssetPressure;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/assets/GpuAssetPressure;IJILjava/lang/Object;)Lcom/fluvian/sdk/core/assets/GpuAssetPressure;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEstimatedBytes ()J
+	public final fun getRetainedAssets ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/branding/SdkBrandBundle {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/Integer;
+	public final fun component6 ()Ljava/lang/Integer;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;)Lcom/fluvian/sdk/core/branding/SdkBrandBundle;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/branding/SdkBrandBundle;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;ILjava/lang/Object;)Lcom/fluvian/sdk/core/branding/SdkBrandBundle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccentColorArgb ()Ljava/lang/Integer;
+	public final fun getAnalyticsTenantKey ()Ljava/lang/String;
+	public final fun getHttpUserAgentProductName ()Ljava/lang/String;
+	public final fun getIntegratorLegalNotice ()Ljava/lang/String;
+	public final fun getIntegratorSupportUrl ()Ljava/lang/String;
+	public final fun getPrimaryColorArgb ()Ljava/lang/Integer;
+	public final fun getProductDisplayName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/network/NetworkHealthMonitor {
+	public fun <init> ()V
+	public final fun adjustedThroughput (J)J
+	public final fun getProfile ()Lkotlinx/coroutines/flow/StateFlow;
+	public final fun label ()Ljava/lang/String;
+	public final fun setSimulatedProfile (Lcom/fluvian/sdk/core/network/SimulatedNetworkProfile;)V
+}
+
+public final class com/fluvian/sdk/core/network/SimulatedNetworkProfile : java/lang/Enum {
+	public static final field CONGESTED_WIFI Lcom/fluvian/sdk/core/network/SimulatedNetworkProfile;
+	public static final field NONE Lcom/fluvian/sdk/core/network/SimulatedNetworkProfile;
+	public static final field POOR_CELL Lcom/fluvian/sdk/core/network/SimulatedNetworkProfile;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/fluvian/sdk/core/network/SimulatedNetworkProfile;
+	public static fun values ()[Lcom/fluvian/sdk/core/network/SimulatedNetworkProfile;
+}
+
+public final class com/fluvian/sdk/core/performance/StreamOrchestrator {
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getPlaybackLooper ()Landroid/os/Looper;
+	public final fun post (Lkotlin/jvm/functions/Function0;)V
+	public final fun shutdown (Lkotlin/jvm/functions/Function0;)V
+}
+
+public final class com/fluvian/sdk/core/player/ExoPlayerProvider {
+	public fun <init> (Landroid/content/Context;)V
+	public final fun createPlayer (Lcom/fluvian/sdk/core/DrmConfig;Landroid/os/Looper;Landroidx/media3/exoplayer/upstream/BandwidthMeter;Landroidx/media3/exoplayer/LoadControl;)Landroidx/media3/exoplayer/ExoPlayer;
+}
+
+public final class com/fluvian/sdk/core/player/MediaSourceFactory {
+	public fun <init> (Landroid/content/Context;Lcom/fluvian/sdk/core/StreamConfig;)V
+	public final fun createMediaSource (Ljava/lang/String;Lcom/fluvian/sdk/core/DrmConfig;)Landroidx/media3/exoplayer/source/MediaSource;
+}
+
+public final class com/fluvian/sdk/core/player/PlayerOptimizer {
+	public fun <init> (Landroidx/media3/common/Player;)V
+	public final fun optimize (Lcom/fluvian/sdk/core/aicore/QoSData;Lcom/fluvian/sdk/core/aicore/OptimizationDecision;)V
+}
+
+public final class com/fluvian/sdk/core/player/StreamingClientImpl : com/fluvian/sdk/core/StreamingClient {
+	public fun <init> (Landroid/content/Context;Lcom/fluvian/sdk/core/AnalyticsTracker;Lcom/fluvian/sdk/core/DrmConfig;)V
+	public fun assetManager3D ()Lcom/fluvian/sdk/core/assets/AssetManager3D;
+	public fun bandwidthPredictor ()Lcom/fluvian/sdk/core/abr/BandwidthPredictor;
+	public fun bindVideoSurface (Landroid/view/Surface;)V
+	public fun initialize (Lcom/fluvian/sdk/core/StreamConfig;Lkotlin/jvm/functions/Function0;)V
+	public fun networkHealthMonitor ()Lcom/fluvian/sdk/core/network/NetworkHealthMonitor;
+	public fun pause ()V
+	public fun play (Ljava/lang/String;)V
+	public fun player ()Landroidx/media3/common/Player;
+	public fun postPlayerOperation (Lkotlin/jvm/functions/Function1;)V
+	public fun refreshDiagnostics (Lkotlin/jvm/functions/Function1;)V
+	public fun release ()V
+	public fun stop ()V
+}
+
+public final class com/fluvian/sdk/core/qos/PlaybackQoSSignals {
+	public fun <init> (JZIJ)V
+	public final fun component1 ()J
+	public final fun component2 ()Z
+	public final fun component3 ()I
+	public final fun component4 ()J
+	public final fun copy (JZIJ)Lcom/fluvian/sdk/core/qos/PlaybackQoSSignals;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/qos/PlaybackQoSSignals;JZIJILjava/lang/Object;)Lcom/fluvian/sdk/core/qos/PlaybackQoSSignals;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDroppedVideoFramesDelta ()I
+	public final fun getMeasuredBandwidthBps ()J
+	public final fun getPlaybackLatencyMs ()J
+	public final fun getRebuffering ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/qos/QoSController {
+	public fun <init> (Lcom/fluvian/sdk/core/abr/BandwidthPredictor;Lcom/fluvian/sdk/core/AnalyticsTracker;)V
+	public final fun buildMetrics (Landroidx/media3/common/Player;Lcom/fluvian/sdk/core/StreamingDiagnostics;)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+	public final fun buildPlaybackQoSSignals (Lcom/fluvian/sdk/core/qos/QoSMetrics;)Lcom/fluvian/sdk/core/qos/PlaybackQoSSignals;
+	public final fun createInitialLoadControl ()Landroidx/media3/exoplayer/LoadControl;
+	public final fun droppedFramesDeltaForTick ()I
+	public final fun execute (Landroidx/media3/exoplayer/ExoPlayer;Lcom/fluvian/sdk/core/qos/QoSMetrics;Lcom/fluvian/sdk/core/qos/QoSDecision;)V
+	public final fun getAnalyticsListener ()Landroidx/media3/exoplayer/analytics/AnalyticsListener;
+	public final fun getPlayerListener ()Landroidx/media3/common/Player$Listener;
+	public final fun interpret (Lcom/fluvian/sdk/core/qos/QoSMetrics;)Lcom/fluvian/sdk/core/qos/QoSDecision;
+	public final fun learn (Lcom/fluvian/sdk/core/qos/QoSMetrics;Lcom/fluvian/sdk/core/qos/QoSDecision;)V
+	public final fun resetSession ()V
+}
+
+public final class com/fluvian/sdk/core/qos/QoSDecision : java/lang/Enum {
+	public static final field Companion Lcom/fluvian/sdk/core/qos/QoSDecision$Companion;
+	public static final field INCREASE_QUALITY Lcom/fluvian/sdk/core/qos/QoSDecision;
+	public static final field REDUCE_QUALITY Lcom/fluvian/sdk/core/qos/QoSDecision;
+	public static final field STABILIZE Lcom/fluvian/sdk/core/qos/QoSDecision;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public final fun toOptimizationDecision ()Lcom/fluvian/sdk/core/aicore/OptimizationDecision;
+	public static fun valueOf (Ljava/lang/String;)Lcom/fluvian/sdk/core/qos/QoSDecision;
+	public static fun values ()[Lcom/fluvian/sdk/core/qos/QoSDecision;
+}
+
+public final class com/fluvian/sdk/core/qos/QoSDecision$Companion {
+	public final fun fromOptimizationDecision (Lcom/fluvian/sdk/core/aicore/OptimizationDecision;)Lcom/fluvian/sdk/core/qos/QoSDecision;
+}
+
+public final class com/fluvian/sdk/core/qos/QoSMetrics {
+	public static final field Companion Lcom/fluvian/sdk/core/qos/QoSMetrics$Companion;
+	public fun <init> (IZZJJJIIJJJ)V
+	public final fun component1 ()I
+	public final fun component10 ()J
+	public final fun component11 ()J
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()J
+	public final fun component5 ()J
+	public final fun component6 ()J
+	public final fun component7 ()I
+	public final fun component8 ()I
+	public final fun component9 ()J
+	public final fun copy (IZZJJJIIJJJ)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+	public static synthetic fun copy$default (Lcom/fluvian/sdk/core/qos/QoSMetrics;IZZJJJIIJJJILjava/lang/Object;)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBufferedAheadMs ()J
+	public final fun getCurrentPositionMs ()J
+	public final fun getDroppedVideoFramesWindow ()I
+	public final fun getEstimatedThroughputBps ()J
+	public final fun getLiveOffsetMs ()J
+	public final fun getMeasuredBandwidthBps ()J
+	public final fun getPlayWhenReady ()Z
+	public final fun getPlaybackState ()I
+	public final fun getRecommendedMaxVideoBitrate ()I
+	public final fun getWallClockElapsedMs ()J
+	public fun hashCode ()I
+	public final fun isRebuffering ()Z
+	public final fun toQoSData ()Lcom/fluvian/sdk/core/aicore/QoSData;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/fluvian/sdk/core/qos/QoSMetrics$Companion {
+	public final fun fromAiFacade (Lcom/fluvian/sdk/core/aicore/QoSData;JJ)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+	public static synthetic fun fromAiFacade$default (Lcom/fluvian/sdk/core/qos/QoSMetrics$Companion;Lcom/fluvian/sdk/core/aicore/QoSData;JJILjava/lang/Object;)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+	public final fun fromPlayerAndDiagnostics (Landroidx/media3/common/Player;Lcom/fluvian/sdk/core/StreamingDiagnostics;Lcom/fluvian/sdk/core/abr/AbrHint;ZJIJ)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+	public static synthetic fun fromPlayerAndDiagnostics$default (Lcom/fluvian/sdk/core/qos/QoSMetrics$Companion;Landroidx/media3/common/Player;Lcom/fluvian/sdk/core/StreamingDiagnostics;Lcom/fluvian/sdk/core/abr/AbrHint;ZJIJILjava/lang/Object;)Lcom/fluvian/sdk/core/qos/QoSMetrics;
+}
+
+public final class com/fluvian/sdk/core/qos/RuleBasedQoSDecisionEngine {
+	public static final field INSTANCE Lcom/fluvian/sdk/core/qos/RuleBasedQoSDecisionEngine;
+	public final fun recommend (Lcom/fluvian/sdk/core/qos/QoSMetrics;)Lcom/fluvian/sdk/core/qos/QoSDecision;
+}
+
+public final class com/fluvian/sdk/core/security/FluvianSecretStore {
+	public static final field Companion Lcom/fluvian/sdk/core/security/FluvianSecretStore$Companion;
+	public synthetic fun <init> (Landroid/content/SharedPreferences;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getSecret (Ljava/lang/String;)Ljava/lang/String;
+	public final fun putSecret (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun removeSecret (Ljava/lang/String;)V
+}
+
+public final class com/fluvian/sdk/core/security/FluvianSecretStore$Companion {
+	public final fun create (Landroid/content/Context;)Lcom/fluvian/sdk/core/security/FluvianSecretStore;
+}
+

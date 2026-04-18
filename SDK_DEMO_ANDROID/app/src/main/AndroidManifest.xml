@@ -6,8 +6,8 @@
 
     <!-- API 31+: required when code/libraries use createAttributionContext / tagged private-data access (reduces AppOps noise). -->
     <attribution
-        android:tag="streamkitPlayback"
-        android:label="@string/attribution_streamkit_playback" />
+        android:tag="fluvianPlayback"
+        android:label="@string/attribution_fluvian_playback" />
     <attribution
         android:tag="@string/attribution_tag_empty"
         android:label="@string/attribution_empty_tag_label" />
@@ -20,12 +20,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.LVSPOCStreamKit">
+        android:theme="@style/Theme.FluvianSdk">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.LVSPOCStreamKit">
+            android:theme="@style/Theme.FluvianSdk">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -1,5 +1,76 @@
 # Changelog
 
+## Unreleased
+
+### GitHub push readiness (README, assets, legal)
+
+- **README:** Closed the Kotlin integration code fence; replaced the broken `videos/*.mp4` hero with [docs/assets/readme-hero.svg](docs/assets/readme-hero.svg) (GitHub-safe, no LFS); relative links for [docs/PRICING.md](docs/PRICING.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md); added **Legal and repository policies** with links to evaluation terms, contributing, and security; added an HTML5 **`<video>`** embed for [videos/Fluvian_SDK_App_Demo.mp4](videos/Fluvian_SDK_App_Demo.mp4) directly under the title, with a `.gitignore` exception so that file can be committed while other MP4s stay ignored.
+- **Policies:** Added [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md); single canonical license file **[LICENSE](LICENSE)** (**LICENSE.txt** removed).
+- **Docs / POM:** [docs/EVALUATION_TERMS.md](docs/EVALUATION_TERMS.md) and [docs/LOCAL_CI.md](docs/LOCAL_CI.md) reference `LICENSE`; Maven POM `license.name` is **LicenseRef-LICENSE** in [SDK_DEMO_ANDROID/fluvian-sdk-core/build.gradle.kts](SDK_DEMO_ANDROID/fluvian-sdk-core/build.gradle.kts).
+
+### Open Core build integrity (enterprise hardening)
+
+- **Committed stubs:** Restored and version-controlled Open Core implementations for `BandwidthPredictor`, `StreamOrchestrator`, `PlayerOptimizer`, `AIOrchestrator`, `LlmDecisionParser`, `OnDeviceGenAi*`, and related facades so fresh clones compile without hidden local files.
+- **Gradle:** Removed `:fluvian-sdk-pro-genai` from `settings.gradle.kts`, the demo `implementation(project(...))` line, and ML Kit GenAI common from `:app` — **PRO** ships only as a licensed private artifact.
+- **`.gitignore`:** Stopped ignoring the above Kotlin sources; IP boundary is commercial distribution + stubs, not silent `git` omissions.
+- **QoS:** Added [QoSController.buildPlaybackQoSSignals](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/qos/QoSController.kt) for explicit **Measure** DTO export; extended [StreamConfig.clientMetadata](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/StreamingClient.kt) and [AnalyticsStreamConfigSummary.clientMetadataEntryCount](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/AnalyticsTracker.kt) for safe integrator injection telemetry.
+- **CI / scripts:** [`.github/workflows/fluvian-sdk-ci.yml`](.github/workflows/fluvian-sdk-ci.yml), [scripts/run_full_ci_local.ps1](scripts/run_full_ci_local.ps1), and [scripts/run_full_ci_local.sh](scripts/run_full_ci_local.sh) no longer invoke missing modules; [scripts/validate_open_core_layout.py](scripts/validate_open_core_layout.py) rejects stray `:fluvian-sdk-pro-genai` wiring.
+- **Docs:** Added [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/PRD.md](docs/PRD.md), and [docs/INTEGRATION_APPENDIX.md](docs/INTEGRATION_APPENDIX.md); refreshed program handbook and README Open Core narrative.
+
+### Documentation layout and version alignment (2026-04-18)
+
+- **Frontmatter:** [docs/PRD.md](docs/PRD.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), and [docs/PROGRAM_HANDBOOK.md](docs/PROGRAM_HANDBOOK.md) aligned to program **1.3.6** / **2026-04-18** with `EchelonProgramInfo.DOCUMENT_VERSION`; matching tables in [docs/internal/PRD.md](docs/internal/PRD.md), [docs/internal/ARCHITECTURE.md](docs/internal/ARCHITECTURE.md), [docs/internal/EXECUTIVE_BRIEF.md](docs/internal/EXECUTIVE_BRIEF.md), and [docs/internal/PROGRAM_HANDBOOK.md](docs/internal/PROGRAM_HANDBOOK.md).
+- **README:** Sponsor brief and program handbook links now target **`docs/internal/`** ([EXECUTIVE_BRIEF.md](docs/internal/EXECUTIVE_BRIEF.md), [PROGRAM_HANDBOOK.md](docs/internal/PROGRAM_HANDBOOK.md)); repository layout table and “Where to read next” updated accordingly.
+- **Integration appendix:** Canonical spec remains **[docs/INTEGRATION_APPENDIX.md](docs/INTEGRATION_APPENDIX.md)** with architecture cross-link to [docs/internal/ARCHITECTURE.md](docs/internal/ARCHITECTURE.md); [docs/internal/INTEGRATION_APPENDIX.md](docs/internal/INTEGRATION_APPENDIX.md) redirects to the canonical file.
+- **Post mortem:** [docs/internal/POST_MORTEM.md](docs/internal/POST_MORTEM.md) revision **1.0.2** records program baseline **1.3.6** and the documentation pass above.
+
+## v1.3.6 — 2026-04-18
+
+### Program version and documentation sync
+
+- **Program version 1.3.6:** Coordinated bump of **`EchelonProgramInfo.DOCUMENT_VERSION`**, demo **`versionName`** / **`versionCode`**, `fluvian-sdk-core` Maven publication version in [SDK_DEMO_ANDROID/fluvian-sdk-core/build.gradle.kts](SDK_DEMO_ANDROID/fluvian-sdk-core/build.gradle.kts), [SDK_DEMO_ANDROID/publishing.gradle.kts](SDK_DEMO_ANDROID/publishing.gradle.kts) coordinate sketch, Echelon file-header **Version** / **Date** metadata across tracked Kotlin, Gradle, scripts, workflow, JNI, `gradle.properties`, and documentation frontmatter ([README.md](README.md), [docs/PRD.md](docs/PRD.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/internal/PROGRAM_HANDBOOK.md](docs/internal/PROGRAM_HANDBOOK.md), [docs/INTEGRATION_APPENDIX.md](docs/INTEGRATION_APPENDIX.md), [README_DRAFT.md](README_DRAFT.md) where present).
+- **README:** Version alignment and CHANGELOG traceability line updated to list **v1.3.6** as the current coordinated drop.
+- **Demo:** `strings.xml` **`fluvian_sdk_version`** label aligned with Open Core SemVer for UI consistency with `BuildConfig.VERSION_NAME`.
+
+## v1.3.5 — 2026-04-17
+
+### Program version and documentation sync
+
+- **Program version 1.3.5:** Coordinated bump of **`EchelonProgramInfo.DOCUMENT_VERSION`**, demo **`versionName`** / **`versionCode`**, [SDK_DEMO_ANDROID/publishing.gradle.kts](SDK_DEMO_ANDROID/publishing.gradle.kts) Maven artifact version, Echelon file-header **Version** metadata across tracked Kotlin, Gradle, scripts, workflow, JNI, and Markdown (excluding historical changelog lines under **v1.3.4**).
+- **README:** Architecture cross-links corrected to current [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) sections (**§6** testing, **§8** QoS, **§9** AI); traceability anchor points at this release entry.
+- **PRD:** Success metrics bullet aligned with Phase 8 JaCoCo gates on **Open Core**, **PRO**, and **app** (not “core + app only”).
+- **Post mortem:** Program baseline narrative updated to **1.3.5** with a revision-table row for the doc/version parity pass.
+
+### CI / quality (Phase 8)
+
+- **GitHub Actions:** [`.github/workflows/fluvian-sdk-ci.yml`](.github/workflows/fluvian-sdk-ci.yml) adds least-privilege `permissions`, PR concurrency cancel, job timeout, **Gradle setup action** cache, dedicated `:fluvian-sdk-core:apiCheck` step, `:app:assembleDebug`, **JaCoCo artifact upload**, and raised LINE gates (**core 15%**, **pro-genai 12%**, **app 1.2%**). [scripts/validate_open_core_layout.py](scripts/validate_open_core_layout.py) now checks module wiring, JNI/CMake, key player types, and **`api/fluvian-sdk-core.api`** baseline markers.
+
+### Open Core (API)
+
+- **`OnDeviceGenAiWarmup.awaitFeatureReady`:** return type is now **`OnDeviceGenAiReadiness`** (`UNAVAILABLE`, `AVAILABLE`) instead of ML Kit **`FeatureStatus`** / **`Int`**. Integrators should compare against that enum; real on-device status and downloads remain in **`FluvianProMlKitWarmup`** (`:fluvian-sdk-pro-genai`).
+
+### Documentation and test coverage
+
+- **PRO prompts:** Added [`FluvianProGenAiPrompts`](SDK_DEMO_ANDROID/fluvian-sdk-pro-genai/src/main/java/com/fluvian/sdk/pro/genai/FluvianProGenAiPrompts.kt) (pure JVM prompt builder) and [`FluvianProGenAiPromptsTest`](SDK_DEMO_ANDROID/fluvian-sdk-pro-genai/src/test/java/com/fluvian/sdk/pro/genai/FluvianProGenAiPromptsTest.kt); [`FluvianProOnDeviceGenAiProvider`](SDK_DEMO_ANDROID/fluvian-sdk-pro-genai/src/main/java/com/fluvian/sdk/pro/genai/FluvianProOnDeviceGenAiProvider.kt) delegates prompt construction for easier coverage without ML Kit inference.
+- **Open Core:** [`OnDeviceGenAiWarmupContractTest`](SDK_DEMO_ANDROID/fluvian-sdk-core/src/test/java/com/fluvian/sdk/core/aicore/OnDeviceGenAiWarmupContractTest.kt) documents conservative warm-up (`UNAVAILABLE`) on JVM CI.
+- **Demo app:** [`ProGenAiModuleClasspathTest`](SDK_DEMO_ANDROID/app/src/test/java/com/fluvian/sdk/demo/ProGenAiModuleClasspathTest.kt) asserts `:fluvian-sdk-pro-genai` types are on the app classpath.
+- **Docs:** [README.md](README.md) Open Core / Commercial layers / integration appendix; [docs/PRD.md](docs/PRD.md) use cases, acceptance criteria, JaCoCo policy; [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) §6 / §8 / §9; [docs/EXECUTIVE_BRIEF.md](docs/EXECUTIVE_BRIEF.md), [docs/PROGRAM_HANDBOOK.md](docs/PROGRAM_HANDBOOK.md), [docs/INTEGRATION_APPENDIX.md](docs/INTEGRATION_APPENDIX.md).
+
+### Fluvian SDK rebrand and packaging
+
+- **CI workflow:** `.github/workflows/echelon-ci.yml` renamed to [`.github/workflows/fluvian-sdk-ci.yml`](.github/workflows/fluvian-sdk-ci.yml); GitHub Actions workflow display name **Fluvian SDK CI**; job id **`fluvian_sdk_ci`**.
+- **Git remote:** Default `origin` URL is [https://github.com/monigarr/fluvian-sdk.git](https://github.com/monigarr/fluvian-sdk.git) (replaces the former `LVSPOC` repository).
+- **Product:** Renamed from LVSPOC StreamKit to **Fluvian SDK**, with positioning as an **AI-first Android streaming SDK** for live video, DRM, and real-time QoS optimization; documentation now reflects open core vs. enterprise layers and white-label positioning.
+- **Android module:** `streamkit-sdk-core` renamed to **`fluvian-sdk-core`**; Gradle root project **`Fluvian SDK`**.
+- **Packages:** `com.monigarr.streamkit.core` / `.demo` migrated to **`com.fluvian.sdk.core`** and **`com.fluvian.sdk.demo`** (integrators must update imports and `applicationId` patterns accordingly).
+- **Maven coordinates:** `com.fluvian.sdk:fluvian-sdk-core` (see `SDK_DEMO_ANDROID/publishing.gradle.kts`).
+- **Public types:** `StreamKitSecretStore` → **`FluvianSecretStore`**, internal `StreamKitInternalComponents` → **`FluvianInternalComponents`**, demo `StreamKitVideoSurface` / `StreamKitDefaultTimeBar` → **`FluvianVideoSurface`** / **`FluvianDefaultTimeBar`**, Compose theme **`FluvianSdkTheme`**; JNI symbol updated for **`NativeLib`**; JaCoCo report task **`jacocoFluvianSdkCoreDebug`**; binary API dump **`api/fluvian-sdk-core.api`**.
+- **DRM:** `DrmConfig` extended with optional `drm_token` / `drm_ssm` fields (default empty) for proxy-style license flows.
+
+### Demo
+
+- **`versionCode`:** 4 (with **`versionName` 1.3.5**).
+
 ## v1.3.4 — 2026-04-15
 
 ### Documentation and distribution
@@ -13,13 +84,13 @@
 ### Demo
 
 - **`versionCode`:** 3 (with **`versionName` 1.3.4**).
-- **Version badge:** SDK FEATURES chip shows **`v{BuildConfig.VERSION_NAME}`** (`buildFeatures.buildConfig = true`). **`ExampleUnitTest.demoVersionName_matchesEchelonDocumentVersion`** asserts `VERSION_NAME == EchelonProgramInfo.DOCUMENT_VERSION` so the label cannot drift from docs or core metadata; Echelon CI runs `:app:testDebugUnitTest`.
+- **Version badge:** SDK FEATURES chip shows **`v{BuildConfig.VERSION_NAME}`** (`buildFeatures.buildConfig = true`). **`ExampleUnitTest.demoVersionName_matchesEchelonDocumentVersion`** asserts `VERSION_NAME == EchelonProgramInfo.DOCUMENT_VERSION` so the label cannot drift from docs or core metadata; Fluvian SDK CI runs `:app:testDebugUnitTest`.
 
 ## v1.3.3 — 2026-04-14
 
 ### Documentation
 
-- **Program version 1.3.3:** [README.md](README.md), [docs/PRD.md](docs/PRD.md), and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) aligned with **`EchelonProgramInfo.DOCUMENT_VERSION`** (`streamkit-sdk-core`) and module Gradle headers.
+- **Program version 1.3.3:** [README.md](README.md), [docs/PRD.md](docs/PRD.md), and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) aligned with **`EchelonProgramInfo.DOCUMENT_VERSION`** (`fluvian-sdk-core`) and module Gradle headers.
 - **ARCHITECTURE:** Document revision footer and §20 Maven sketch coordinate updated; illustrative Echelon header example in §25 set to **1.3.3**.
 
 ### Demo / distribution
@@ -33,7 +104,7 @@
 
 ### CI
 
-- [.github/workflows/echelon-ci.yml](.github/workflows/echelon-ci.yml) workflow header **Version** / **Date** aligned to **1.3.3** / **2026-04-14**.
+- [.github/workflows/fluvian-sdk-ci.yml](.github/workflows/fluvian-sdk-ci.yml) workflow header **Version** / **Date** aligned to **1.3.3** / **2026-04-14** (workflow was `echelon-ci.yml` at that release).
 
 ## v1.3.2 — 2026-04-14
 
@@ -87,8 +158,8 @@
 
 ### CI and SDK
 
-- **Binary API gate**: `streamkit-sdk-core` uses JetBrains **kotlinx.binary-compatibility-validator** (`api/` + `:streamkit-sdk-core:apiCheck`). AGP 9 **built-in Kotlin** is opted out via `android.builtInKotlin=false` and `android.newDsl=false` in `gradle.properties` so `org.jetbrains.kotlin.android` can apply (required by the validator until KGP ABI supports built-in Kotlin).
-- **Demo**: `StreamKitSecretStore` wired in `MainActivity` with masked input; UI shows only stored vs empty—no secret values in logs.
+- **Binary API gate**: `fluvian-sdk-core` uses JetBrains **kotlinx.binary-compatibility-validator** (`api/` + `:fluvian-sdk-core:apiCheck`). AGP 9 **built-in Kotlin** is opted out via `android.builtInKotlin=false` and `android.newDsl=false` in `gradle.properties` so `org.jetbrains.kotlin.android` can apply (required by the validator until KGP ABI supports built-in Kotlin).
+- **Demo**: `FluvianSecretStore` wired in `MainActivity` with masked input; UI shows only stored vs empty—no secret values in logs.
 
 ## v1.2.1 — 2026-04-12
 
@@ -97,7 +168,7 @@
 - **DASH**: `MediaSourceFactory` builds `DashMediaSource` when the manifest path ends in `.mpd` (case-insensitive); HLS remains the default for other URLs.
 - **Analytics**: `AnalyticsTracker` gains privacy-minimized `onSessionStart` / `onSessionEnd` (opaque UUID per `initialize` … `release` cycle); `StreamingClientImpl` emits them on the main thread.
 - **Diagnostics**: `StreamingDiagnostics` exposes text-track counts and the selected caption summary for caption-ready UI and observability.
-- **Security**: Added `StreamKitSecretStore` (AndroidX Security `EncryptedSharedPreferences`) for integrator API keys and similar secrets outside source control.
+- **Security**: Added `FluvianSecretStore` (AndroidX Security `EncryptedSharedPreferences`) for integrator API keys and similar secrets outside source control.
 
 ### Demo
 
@@ -111,12 +182,12 @@
 - **ABR**: Added `BandwidthPredictor` (off-thread smoothing + `StateFlow` hints) and `NetworkHealthMonitor` (simulated throttling profiles) with optional `StreamConfig.enableBandwidthPredictorHints` to apply caps on the playback thread.
 - **AI**: Added `AILayerInference` for coroutine-first inference; demo uses `postPlayerOperation` so `PlayerOptimizer` never mutates ExoPlayer from Compose.
 - **3D assets**: Added `AssetManager3D` (reference-counted registry + pressure `StateFlow`) for overlay/AR texture lifecycle hygiene.
-- **DI**: Added internal `StreamKitInternalComponents` factory so composition stays inside `streamkit-sdk-core` without leaking a DI framework into host apps.
-- **Demo**: Curated public HTTPS HLS fixtures (Akamai synthetic live, Apple Advanced fMP4, Mux Big Buck Bunny, Unified Streaming Tears of Steel), `StreamKitVideoSurface` (`TextureView` → `bindVideoSurface`), and live ABR/AI readouts.
+- **DI**: Added internal `FluvianInternalComponents` factory so composition stays inside `fluvian-sdk-core` without leaking a DI framework into host apps.
+- **Demo**: Curated public HTTPS HLS fixtures (Akamai synthetic live, Apple Advanced fMP4, Mux Big Buck Bunny, Unified Streaming Tears of Steel), `FluvianVideoSurface` (`TextureView` → `bindVideoSurface`), and live ABR/AI readouts.
 
 ### Documentation
 
-- **ARCHITECTURE / README / PRD**: Documented Echelon threading, Kotlin **Binary Compatibility Validator** adoption path, Maven coordinates (`com.monigarr.streamkit:streamkit-sdk-core`), GLSL/PBR overlay guidance, and Widevine/4K thermal buffering notes.
+- **ARCHITECTURE / README / PRD**: Documented Echelon threading, Kotlin **Binary Compatibility Validator** adoption path, Maven coordinates (`com.fluvian.sdk:fluvian-sdk-core`), GLSL/PBR overlay guidance, and Widevine/4K thermal buffering notes.
 - **README / PRD / CHANGELOG / ARCHITECTURE §26**: Aligned demo stream list with `MainActivity` (four curated public HLS fixtures), documented CI **NDK** prerequisite and Gradle/JaCoCo steps, and bumped Echelon workflow header version to **1.2.0**.
 
 ## v1.1.1 — 2026-04-12
@@ -124,7 +195,7 @@
 ### Documentation
 
 - **README**: Repo layout includes `scripts/` and `.github/workflows/`; Windows `gradlew.bat` note; integration example uses `StreamConfig`, correct `StreamingClientImpl` package, and `player()` for UI binding.
-- **ARCHITECTURE**: Core API snippets aligned with `streamkit-sdk-core` (`StreamingClient.player()`, `StreamConfig`, `MediaSourceFactory` + `StreamingClientImpl` flow, `DrmConfig` defaults, header example version).
+- **ARCHITECTURE**: Core API snippets aligned with `fluvian-sdk-core` (`StreamingClient.player()`, `StreamConfig`, `MediaSourceFactory` + `StreamingClientImpl` flow, `DrmConfig` defaults, header example version).
 - **CHANGELOG**: Prior **v1.0.0** entry rewritten for this program (removed unrelated template wording).
 - **Removed**: `BLANK_README.md` (unused third-party README template).
 
@@ -136,9 +207,9 @@
 - **ARCHITECTURE**: Removed duplicate legacy appendices; added sections **20–27** (SDK distribution, ABR/profiling/rendering, extended AI, optional 3D layer, documentation versioning, **mandatory source/script headers**, enterprise testing, operational readiness).
 - **SDK**: Added Echelon **KDoc file header** to `NativeLib.kt` (author, date, version, usage, example).
 - **Echelon headers**: Applied to `MainActivity.kt`, all example unit/instrumented tests, Gradle scripts (`build.gradle.kts`, `settings.gradle.kts`, `gradle.properties`, `libs.versions.toml`, `publishing.gradle.kts`), and `core.cpp`.
-- **CI**: [`.github/workflows/echelon-ci.yml`](.github/workflows/echelon-ci.yml) runs `scripts/check_echelon_headers.py`, Gradle unit tests, `jacocoStreamkitCoreDebug`, and `scripts/check_jacoco_coverage.py` (default **10%** LINE on `streamkit-sdk-core`).
-- **Coverage**: `streamkit-sdk-core` JaCoCo task uses AGP **9** Kotlin class dir `intermediates/built_in_kotlinc/...`; added `EchelonProgramInfo.describe()` for measurable line coverage.
-- **Fix**: App module now depends on `project(":streamkit-sdk-core")` (was incorrect `:streamkit-core`).
+- **CI**: [`.github/workflows/fluvian-sdk-ci.yml`](.github/workflows/fluvian-sdk-ci.yml) runs `scripts/check_echelon_headers.py`, Gradle unit tests, `jacocoFluvianSdkCoreDebug`, and `scripts/check_jacoco_coverage.py` (default **10%** LINE on `fluvian-sdk-core`).
+- **Coverage**: `fluvian-sdk-core` JaCoCo task uses AGP **9** Kotlin class dir `intermediates/built_in_kotlinc/...`; added `EchelonProgramInfo.describe()` for measurable line coverage.
+- **Fix**: App module now depends on `project(":fluvian-sdk-core")` (was incorrect `:Fluvian SDK-core`).
 
 ### Removed
 
@@ -148,4 +219,4 @@
 
 ### Added
 
-- Initial **LVSPOC StreamKit** repository baseline: Android reference project under `SDK_DEMO_ANDROID/`, core streaming module, and early documentation structure before the Echelon **1.1.x** documentation and CI pass.
+- Initial **Fluvian SDK** repository baseline: Android reference project under `SDK_DEMO_ANDROID/`, core streaming module, and early documentation structure before the Echelon **1.1.x** documentation and CI pass.

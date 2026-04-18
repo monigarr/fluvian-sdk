@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">LVSPOC StreamKit SDK</string>
+    <string name="app_name">Fluvian SDK Demo</string>
     <string name="app_author">Monica Peters</string>
     <string name="app_author_email">monigarr@MoniGarr.com</string>
-    <string name="streamkit_sdk_version">v1.1.0 Enterprise</string>
+    <string name="fluvian_sdk_version">v1.3.6 Open Core</string>
     <string name="video_ol_live">LIVE</string>
     <string name="video_ol_length">400ms</string>
     <string name="video_ol_title">FC vs Northwind</string>
@@ -11,7 +11,7 @@
     <string name="video_ol_menu_tactical">TACTICAL</string>
     <string name="video_ol_menu_goal">GOAL</string>
     <string name="video_ol_menu_drone">DRONE</string>
-    <string name="streamkit_sdk_features_text">SDK FEATURES</string>
+    <string name="fluvian_sdk_features_text">SDK FEATURES</string>
     <string name="menu_demo">Demo</string>
     <string name="menu_ulle">Ultra-Low Latency Engine</string>
     <string name="menu_mcs">Multi-Camera Switch</string>
@@ -21,8 +21,8 @@
     <string name="menu_drmfw">DRM Forensic Watermarking</string>
     <string name="menu_ad">Analytics Dashboard</string>
     <string name="menu_ec">Enterprise Controls</string>
-    <string name="streamkit_player_content_description">StreamKit Video Surface</string>
-    <string name="attribution_streamkit_playback">StreamKit Media Playback</string>
+    <string name="fluvian_player_content_description">Fluvian SDK video surface</string>
+    <string name="attribution_fluvian_playback">Fluvian SDK media playback</string>
     <!-- Empty tag: workaround for AppOps "attributionTag not declared" when framework/libs use "" (see StackOverflow 79721071). -->
     <string name="attribution_tag_empty" translatable="false">empty</string>
     <string name="attribution_empty_tag_label" translatable="false">System or Bundled Components</string>

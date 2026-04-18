@@ -1,0 +1,7 @@
+
+## White-label and enterprise integration
+
+- **Branding:** pass optional [SdkBrandBundle](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/branding/SdkBrandBundle.kt) through [StreamConfig.sdkBrand](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/StreamingClient.kt) so host shells, splash copy, and support links stay client-specific without forking the player pipeline.
+- **Configuration:** HTTP user agent, headers, live edge offsets, AI façade settings, and non-secret [`StreamConfig.clientMetadata`](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/StreamingClient.kt) key/value injection remain in [StreamConfig]; secrets stay in encrypted host storage (see demo [FluvianSecretStore](SDK_DEMO_ANDROID/fluvian-sdk-core/src/main/java/com/fluvian/sdk/core/security/FluvianSecretStore.kt)).
+- **Distribution:** Open Core publishes the `fluvian-sdk-core` AAR contract. **PRO SDK** ships as a **private AAR** (or customer fork) for production GenAI / optimization; **Enterprise Services** covers engagements and optional private repos under commercial agreements.
+- **Integration one-pager:** [docs/INTEGRATION_APPENDIX.md](docs/INTEGRATION_APPENDIX.md) — Maven coordinates, `SdkBrandBundle`, `AIProviderResolver`, analytics hooks, and private repository Gradle properties. The demo app wires a sample bundle and resolver in [DemoWhiteLabel.kt](SDK_DEMO_ANDROID/app/src/main/java/com/fluvian/sdk/demo/DemoWhiteLabel.kt).

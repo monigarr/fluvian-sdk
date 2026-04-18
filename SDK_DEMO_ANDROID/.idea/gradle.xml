@@ -10,7 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/streamkit-sdk-core" />
+            <option value="$PROJECT_DIR$/fluvian-sdk-core" />
           </set>
         </option>
       </GradleProjectSettings>

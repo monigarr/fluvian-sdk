@@ -1,89 +1,192 @@
-# LVSPOC StreamKit (Architecture Evaluation)
+![Android](https://img.shields.io/badge/Android-Kotlin-green)
+![Streaming](https://img.shields.io/badge/Streaming-Media3-blue)
+![QoS](https://img.shields.io/badge/QoS-AI--Ready-purple)
+![License](https://img.shields.io/badge/License-Proprietary-red)
 
-Android streaming reference architecture for live sports use cases: a Kotlin SDK module (`streamkit-sdk-core`) plus a host integration module (`app`) for validating API contracts, playback behavior, DRM wiring, analytics and observability, and CI quality gates.
+# Fluvian SDK
 
-## Context
+<video width="100%" controls playsinline preload="metadata">
+  <source src="videos/Fluvian_SDK_App_Demo.mp4" type="video/mp4" />
+  Your browser does not support embedded video — <a href="videos/Fluvian_SDK_App_Demo.mp4">open the demo file</a>.
+</video>
 
-This repository is intentionally **SDK-first**, not app-first.  
-Primary objective: define an Android streaming foundation with clear module boundaries, stable integration contracts, and operational guardrails for production delivery.
+**AI-first Android streaming SDK for live video, DRM, and real-time QoS optimization.**
 
-## Scope
+Build high-performance streaming apps with **production-grade playback + adaptive QoS decision systems**—not just a player wrapper.
 
-Capabilities in scope:
-- Live and VOD streaming with Media3/ExoPlayer (`HLS`, `DASH .mpd`)
-- Reusable SDK API boundary (`StreamingClient`, `StreamConfig`) for host-app abstraction
-- Widevine-oriented DRM bootstrap (`DrmConfig`) with license endpoint + request-header model
-- Analytics contract (`AnalyticsTracker`) with privacy-first defaults (no PII in default analytics)
-- Performance and reliability controls (ABR hints, diagnostics, playback-thread discipline, CI gating)
+---
 
-## Non-Goals
+![Fluvian SDK — Open Core banner](docs/assets/readme-hero.svg)
 
-- Not a production content service (no CDN ownership, no rights management operations, no license server operations).
-- Not a backend analytics platform (exports analytics contracts only; sink ownership remains with integrators).
-- Not a single-module app architecture; host UI exists to exercise SDK integration paths.
-- Not a replacement for organization-specific secret management or compliance workflows.
+*Screen recording: commit **`videos/Fluvian_SDK_App_Demo.mp4`** for the player above (see `.gitignore` exception). For full interactive playback and QoS, clone and run **`SDK_DEMO_ANDROID`** in Android Studio.*
 
-## Architecture
+## 🚀 Get Started in Minutes
 
-1. **Public SDK contract**  
-   `SDK_DEMO_ANDROID/streamkit-sdk-core/src/main/java/com/monigarr/streamkit/core/StreamingClient.kt`  
-   Defines SDK lifecycle contract, threading constraints, diagnostics and extension hooks.
+- Clone + run the demo in **under 5 minutes**
+- See **real streaming + QoS decision logic in action**
+- No API keys, no setup friction
 
-2. **Playback implementation**  
-   `SDK_DEMO_ANDROID/streamkit-sdk-core/src/main/java/com/monigarr/streamkit/core/player/StreamingClientImpl.kt`  
-   Implements Media3 orchestration, lifecycle transitions, and host-integration behavior.
+👉 **Start now → clone + run**
+👉 **Upgrade to PRO when you need AI optimization**
 
-3. **DRM model**  
-   `SDK_DEMO_ANDROID/streamkit-sdk-core/src/main/java/com/monigarr/streamkit/core/DrmConfig.kt`  
-   Defines DRM handshake input shape: license endpoint plus auth/token headers.
+**Contact:** monigarr@monigarr.com
 
-4. **Analytics model**  
-   `SDK_DEMO_ANDROID/streamkit-sdk-core/src/main/java/com/monigarr/streamkit/core/AnalyticsTracker.kt`  
-   Analytics boundary for play/buffer/error/session events with privacy-first defaults.
+---
 
-5. **Host integration surface**  
-   `SDK_DEMO_ANDROID/app/src/main/java/com/monigarr/streamkit/demo/`  
-   Demonstrates host-module wiring and integration pattern.
+## ⭐ Start Here (Fastest Path)
 
-Built as a modular Android video streaming SDK + host module:
-- `streamkit-sdk-core`: reusable integration layer
-- `app`: reference host for implementation and onboarding flow
+Choose your path:
 
-Separation is deliberate: streaming capability evolves in the SDK, while the app remains an integration harness and acceptance surface.
+- 👨‍💻 **Developer** → Run demo → explore SDK architecture  
+- 🚀 **Startup / Product Team** → Ship with Open Core → upgrade to PRO  
+- 🏢 **Enterprise / OTT** → Engage for performance + architecture  
 
-Domain alignment (live sports):
-- Live playback orientation with low-latency readiness and ABR governance
-- Analytics hooks aligned with production observability pipelines
-- DRM-ready path for protected premium content
-- Design choices aligned with bursty, event-driven traffic and strict playback SLAs
+👉 Email: **monigarr@monigarr.com**  
+👉 Subject: `Fluvian SDK – [Your Use Case]`
 
-## Verification
+---
 
-From `SDK_DEMO_ANDROID`:
+## Why Fluvian SDK
 
-```bash
-./gradlew :streamkit-sdk-core:apiCheck :streamkit-sdk-core:testDebugUnitTest :app:testDebugUnitTest
+Most Android video stacks stop at playback.
+
+Fluvian SDK adds a **decision layer** on top of playback:
+
+- Real-time **QoS-driven adaptation**
+- AI-ready optimization layer (optional)
+- Clean SDK architecture (not a wrapper)
+- Privacy-first analytics
+- Designed for **production environments**
+
+**Result:** better playback reliability, faster development, and a system that scales.
+
+---
+
+## Who This Is For
+
+- Android developers building video apps  
+- Startups launching OTT / streaming products  
+- Teams struggling with buffering, latency, or stability  
+- Engineers exploring QoS + AI optimization  
+- Agencies delivering streaming platforms  
+
+---
+
+## What You Get (Open Core)
+
+This repo is a **fully working streaming SDK**, not a mock or sample.
+
+- Media3-based playback (HLS + DASH)
+- DRM-ready architecture
+- QoS pipeline (**Measure → Interpret → Execute**)
+- AI abstraction layer (no hidden dependencies)
+- Demo app with real streams
+
+You can **evaluate the full system locally** with zero external dependencies.
+
+---
+
+## Where PRO Starts
+
+Open Core proves the architecture.
+
+**PRO unlocks production advantage:**
+
+- AI-driven QoS optimization  
+- Bandwidth prediction systems  
+- Advanced playback tuning  
+- Private SDK artifacts (AAR)  
+
+👉 Used when performance = revenue
+
+See [docs/PRICING.md](docs/PRICING.md).
+
+---
+
+## Architecture Boundary
+
+**Open Core (public):**
+- StreamingClient API  
+- Media3 integration  
+- QoS framework  
+- AI abstraction layer  
+
+**Licensed layers:**
+- Optimization engine  
+- Prediction models  
+- Production DRM workflows  
+
+Technical contract: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
+---
+
+## 🧪 Try It Now
+
+Run the full system locally:
+
+- Real streaming playback  
+- QoS monitoring  
+- SDK integration patterns  
+
+No API keys. No setup friction.
+
+👉 Clone → open `SDK_DEMO_ANDROID/` → run
+
+---
+
+## Getting Started
+
+1. Clone the repository  
+2. Open `SDK_DEMO_ANDROID/` in Android Studio  
+3. Run the app  
+4. Explore streaming + QoS behavior  
+
+That’s it.
+
+---
+
+## Example Integration
+
+```kotlin
+val client: StreamingClient = StreamingClientImpl(
+    context = context,
+    analytics = myAnalyticsTracker,
+    drmConfig = optionalWidevineConfig,
+)
+
+client.initialize(StreamConfig(enableBandwidthPredictorHints = true)) {
+    client.play("https://example.com/live/playlist.m3u8")
+}
 ```
 
-On Windows PowerShell:
+---
 
-```powershell
-.\gradlew.bat :streamkit-sdk-core:apiCheck :streamkit-sdk-core:testDebugUnitTest :app:testDebugUnitTest
-```
+## Work With Fluvian SDK
 
-Then run the `app` target in Android Studio to validate end-to-end playback and host integration.
+Fluvian SDK supports:
 
-Reference documentation:
+- Streaming app development
+- Playback performance optimization
+- AI-driven QoS systems
+- White-label SDK integrations
 
-- Product scope and outcomes: `docs/PRD.md`
-- Technical architecture: `docs/ARCHITECTURE.md`
-- Program handoff and onboarding: `docs/PROGRAM_HANDBOOK.md`
-- Delivery history: `CHANGELOG.md`
+## Get Started
 
-## Risks
+- Evaluate with Open Core
+- Upgrade to PRO for production
+- Engage Enterprise for scale
 
-- Integration risk if host teams bypass SDK lifecycle/threading contracts in `StreamingClient`.
-- DRM deployment risk if license endpoint/auth configuration in `DrmConfig` is not environment-managed.
-- Analytics and observability risk if `AnalyticsTracker` is not wired to downstream monitoring/alerting systems.
-- Performance risk on constrained networks/devices without ABR tuning and diagnostic review in production.
-- Governance risk if API checks, tests, and documentation alignment are not enforced in CI.
+👉 monigarr@monigarr.com
+
+Response time: ~24 hours
+
+---
+
+## Legal and repository policies
+
+| Document | Purpose |
+|----------|---------|
+| [LICENSE](LICENSE) | Proprietary terms (evaluation / no redistribution without permission) |
+| [docs/EVALUATION_TERMS.md](docs/EVALUATION_TERMS.md) | Plain-language evaluation rules |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to report issues and contribute |
+| [SECURITY.md](SECURITY.md) | How to report vulnerabilities privately |

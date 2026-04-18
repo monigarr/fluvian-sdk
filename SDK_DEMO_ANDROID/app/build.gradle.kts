@@ -1,12 +1,12 @@
 /**
  * File: build.gradle.kts
- * Description: Gradle build for the StreamKit demo Android application (Compose, Material3).
+ * Description: Gradle build for the Fluvian SDK demo Android application (Compose, Material3).
  * Author: monigarr@monigarr.com
- * Date: 2026-04-15
- * Version: 1.3.4
+ * Date: 2026-04-18
+ * Version: 1.3.6
  *
  * Usage:
- *   Declares dependencies on AndroidX, Compose BOM, and the local streamkit-sdk-core library module.
+ *   Declares dependencies on AndroidX, Compose BOM, and the local fluvian-sdk-core library module.
  *
  * Usage example:
  *   ./gradlew :app:assembleDebug
@@ -24,7 +24,7 @@ plugins {
 }
 
 android {
-    namespace = "com.monigarr.streamkit.demo"
+    namespace = "com.fluvian.sdk.demo"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -32,11 +32,11 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.monigarr.streamkit.demo"
+        applicationId = "com.fluvian.sdk.demo"
         minSdk = 26
         targetSdk = 36
-        versionCode = 3
-        versionName = "1.3.4"
+        versionCode = 5
+        versionName = "1.3.6"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -112,9 +112,9 @@ tasks.register<JacocoReport>("jacocoAppDebug") {
         )
     )
     executionData.setFrom(
-        fileTree(buildDirLayout) {
-            include("**/*.exec")
-        }
+        tasks.named<Test>("testDebugUnitTest").map { t ->
+            t.extensions.getByType<JacocoTaskExtension>().destinationFile
+        },
     )
 
     reports {
@@ -126,7 +126,6 @@ tasks.register<JacocoReport>("jacocoAppDebug") {
 }
 
 dependencies {
-    implementation(libs.google.mlkit.genai.common)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -142,7 +141,7 @@ dependencies {
     implementation(libs.androidx.media3.exoplayer)
     implementation(libs.androidx.media3.ui)
     implementation(libs.androidx.media3.ui.compose.material3)
-    implementation(project(":streamkit-sdk-core"))
+    implementation(project(":fluvian-sdk-core"))
     testImplementation(libs.junit)
     testImplementation(libs.robolectric)
     testImplementation(libs.androidx.test.core)
