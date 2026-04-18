@@ -5,7 +5,7 @@
 
 # Fluvian SDK
 
-[![Watch the video](videos/Fluvian_SDK_App_Demo.mp4)](videos/Fluvian_SDK_App_Demo.mp4)
+[![Watch the video](https://www.youtube.com/watch?v=rOCPBmIqJBU)](https://www.youtube.com/watch?v=rOCPBmIqJBU)
 
 
 **AI-first Android streaming SDK for live video, DRM, and real-time QoS optimization.**
@@ -16,7 +16,7 @@ Build high-performance streaming apps with **production-grade playback + adaptiv
 
 ![Fluvian SDK — Open Core banner](images/fluvian_sdk_demo_social_card.png)
 
-*Screen recording: commit **`videos/Fluvian_SDK_App_Demo.mp4`** for the player above (see `.gitignore` exception). For full interactive playback and QoS, clone and run **`SDK_DEMO_ANDROID`** in Android Studio.*
+*Screen recording: For full interactive playback and QoS, clone and run **`SDK_DEMO_ANDROID`** in Android Studio.*
 
 ## 🚀 Get Started in Minutes
 
